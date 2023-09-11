@@ -1,0 +1,355 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<TITLE>SNC PPU toolchain for PlayStation®3</TITLE>
+	<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<STYLE TYPE="text/css">	
+<!--
+body         { font-family: Arial, Verdana, Helvetica; font-size: 80%; margin: 0; padding: 5px }
+h1, h2, h3, h4, a:link, a:visited { color: #000000 }
+.warning     { font-weight: bold; color: #6c000a }
+em           { font-style: italic; color: #a90017 }
+.back-to-top { font-size: 70% }
+a:link, a:visited, a:active { color: #009bd4 }
+p.note       { background-color: rgb(237, 245, 251); background-repeat: repeat; 
+               background-attachment: scroll; -moz-background-clip: initial; 
+               -moz-background-origin: initial; 
+               -moz-background-inline-policy: initial; 
+               border-left: 4.5pt solid rgb(103, 180, 221); 
+               border-right: 4.5pt solid rgb(103, 180, 221); 
+               border-top: 0.25pt solid white; 
+               border-bottom: 0.25pt solid white; padding-left: 12pt; 
+               padding-right: 12pt; padding-top: 0cm; padding-bottom: 0cm; 
+               background-position: none 50% }
+pre          { font-family: Courier, serif }
+code         { font-family: Courier, serif }
+div.release  { margin-left: 2em }
+dl           { width: 100% }
+dt           { float: left; color: #808080 }
+dd           { text-indent: 0em; margin-left: 7em }
+p.release-title { background-color: #e0e0e0; width: 100%; margin-top: 0; margin-bottom: 2px; 
+               padding-top: 2; padding-bottom: 2px }
+p.history-title { background-color: #f0f0f0; width: 100%; margin-top: 0; margin-bottom: 0; 
+               padding-top: 2px; padding-bottom: 2px }
+.ln          { color: #006189; font-weight: bold }
+div.footer   { font-size: 75% }
+table.opt { border-width: 1px;
+          	border-color: black
+			border-collapse: seperate;
+            background-color: rgb(237, 245, 251);
+			}
+table.opt tbody {
+               background-color: rgb(237, 245, 251);
+			   font-weight: normal;
+	           font-size: 75%
+			   }
+table.opt th { border-width: 1px; 
+               padding: 1px;
+			   border-color: gray; 
+			   font-weight: bold;
+			   text-align: left;
+			   }
+table.opt td { border-width: 1px; 
+               padding: 1px;
+			   border-color: gray;
+               background-color: white; 
+			   text-align: right;
+			   }
+
+table.opt td.notes {
+			   text-align: left;
+			   font-style: italic;
+			   }
+
+-->
+</STYLE>
+	
+</HEAD>
+
+<!---------------------------------------------------------------------------------------->
+
+<BODY>
+
+<H2>SNC PPU toolchain for PlayStation®3 - v4.70 </H2>
+
+<H3>13 Jan 2015</H3>
+
+<P> Copyright 2004-2015 SN Systems Ltd. All rights reserved.</P>
+
+<OL>
+	<LI><A href="#Overview">概要</A></LI>
+	<LI><A href="#Contents">内容</A></LI>
+	<LI><A href="#Whats_new">更新情報</A></LI>
+	<LI><A href="#Installation">インストール</A></LI>
+	<LI><A href="#Limitations and warnings">制限と警告</A></LI>
+	<LI><A href="#Support">アップデートとテクニカルサポート</A></LI>
+</OL>
+
+<!---------------------------------------------------------------------------------------->
+<HR>
+<!---------------------------------------------------------------------------------------->
+
+<H3>1. <A name="Overview">概要</A> <A href="#top" CLASS=back-to-top>トップに戻る</A></H3>
+<P>今回のリリースは、以下に対応しています。</P>
+<UL>
+  <LI>SDK: 470_001 以降 
+  <LI>SN-DBS v2.2.1.39  
+  <LI>Visual Studio .NET Integration v2.2.5.5 以降 </LI></UL>
+<P><B>ライセンス</B></P>
+<UL>
+  <LI>SNC PPU ツールチェーンは、「PlayStation®3 CELL SDK」のライセンスに準拠します。 
+  <LI>SNC PPU ツールチェーンは、SN-DBS などの分散型ビルド システムで使用できます。 </LI></UL>
+
+<!---------------------------------------------------------------------------------------->
+<HR>
+<!---------------------------------------------------------------------------------------->
+
+<H3>2. <A name="Contents">内容</A>&nbsp; <A href="#top" CLASS=back-to-top>トップに戻る</A></H3>
+<P>このリリースには、以下の SN システムズ製の開発ツールが含まれています。</P>
+<UL>
+	<LI><A href="#assembler">アセンブラ</A></LI>
+	<LI><A href="#binutil">バイナリ ユーティリティ</A></LI>
+	<LI><A href="#compiler">C/C++ コンパイラ</A></LI>
+	<LI><A href="#demangler">C++ デマングラ モジュール</A></LI>
+	<LI><A href="#librarian">アーカイブ ライブラリアン</A></LI>
+	<LI><A href="#linker">リンカ</A></LI>
+	<LI><A href="#name">C++ 名前デマングラ</A></LI>
+	<LI>ライブラリ</LI>
+	<LI>ユーザー用ドキュメント</LI>
+</UL>
+
+
+<!---------------------------------------------------------------------------------------->
+<HR>
+<!---------------------------------------------------------------------------------------->
+
+<H3>3. <A name="Whats_new">更新情報</A> <A href="#top" CLASS=back-to-top>トップに戻る</A></H3> 
+
+<!-- TMPL_INCLUDE 'Whats New-J.html' -->
+<!----------------------------------------------------------------------------------------><!
+----------------------------------------------------------------------------------------><a 
+name="Debugging Optimized Code at '-g -Od'"><h3>「-g -Od」を使用した、最適化済みコードのデバッグ
+</h3></a><p>
+コンパイラの最適化を有効にした状態での、関数のローカル変数に関するデバッグ情報には大幅な改変が加えられました
+。この改善により、最適化されたコードのデバッグ中の、ローカル変数の可視性が高まりました。最適化されたコードのデバ
+ッグは、-O0 を使用してコンパイルされたコードのデバッグより扱いにくいものです。このことに変わりはありませんが、SNC 
+は -Od オプションを提供することにより、デバッグを考慮したコード最適化を行います。これにより、本リリースでの -Od 
+最適化レベルを使用するデバッグ エクスペリエンスはより充実したものとなります。</p><a name=
+"Front-End-Upgrade"><h3>フロントエンド アップグレード</h3></a><p>SNC 4.70 リリースには、EDG (Edison 
+Design Group) バージョン 4.9 
+フロントエンドが含まれており、これには不具合修正と、さまざまな互換モードの改善が含まれています。<br><a name=
+"Changes-in-Diagnostics"><h3>診断における変更点</h3></a><p>おもに EDG 
+フロントエンドのアップグレードの結果として、一部の診断に変更が加えられています。このセクションでは、これらの変更点
+のなかでもとりわけ重要な点を説明します。</p><a name="Added-Diagnostics"><h4>追加されている診断
+</h4></a><p>次の新しい診断が追加されています。</p>
+
+<p><table style="margin-left:30px">  
+<tr><td>ec_bad_va_start_last_param</td><td>va_start が不正に使用されています。最後のパラメータ 
+%nd を使用する必要があります</td></tr>
+<tr><td>ec_bad_size_for_static_address_init</td><td>
+あるアドレス値での静的初期化。このアドレスと同じサイズのデスティネーションが必要です</td></tr>
+<tr><td>ec_nontrivial_statement_expr_result_type</td><td>
+自明ではないコピー構築または自明ではない破壊を必要とする結果の型 (%t) 
+を含むステートメント式は許可されていません</td></tr>
+<tr><td>ec_operand_must_be_real_floating_value</td><td>実数の浮動小数点数型のオペランド (%t 
+ではない) が必要です</td></tr>
+<tr><td>ec_call_requires_string_literal</td><td>呼び出しには文字列リテラルのオペランドが必要です
+</td></tr>
+<tr><td>ec_duplicate_inheriting_constructor</td><td>継承コンストラクタの宣言が重複しています (1 
+つ前は %p)</td></tr>
+<tr><td>ec_thread_local_must_include_static_or_extern</td><td>ブロック 
+スコープのスレッド固有宣言には、static または extern を含める必要があります</td></tr>
+<tr><td>ec_global_ns_has_no_actual_member</td><td>グローバル名前空間には実際のメンバ %sq 
+はありません。</td></tr>
+</table><a name="Deleted-Error-Tags"><h4>削除されたエラー タグ</h4></a><p>
+本リリースでは、次のようなエラー タグが削除されています。</p>
+
+<p><table style="margin-left:30px">  
+<tr><td>ec_destr_in_statement_expr</td><td>
+ステートメント式の内側での破壊可能なエンティティの指定は認められません</td></tr>
+<tr><td>ec_lambda_return_must_be_only_construct</td><td>
+返り値の型が明示的ではない、値を返すラムダの本文は、単一の return ステートメントでなければなりません
+</td></tr>
+<tr><td>ec_lambda_returns_with_diff_types</td><td>暗黙的な返り値の型を取るラムダの場合、すべての 
+return ステートメントは同じ型を返さなければなりません</td></tr>
+<tr><td>ec_voidstar_method_violates_strict_alising_rules</td><td>
+厳密なエイリアシング規則の違反となる可能性のあるメソッドから void* が返されます</td></tr>
+</table><a name="Renamed-Error-Tags"><h4>名称変更されたエラー タグ</h4></a><p>
+本リリースでは、次のようなエラー タグの名称が変更されています。</p>
+
+<p><table style="margin-left:30px">  
+<tr><td>ec_enum_comparison_mismatch</td><td>から</td><td>ec_different_enum_comparison
+</td></tr>
+</table>
+<!-- Add changelist retrieved from P4 -->
+<!-- TMPL_INCLUDE 'P4 Jobs.html' -->
+ <h4><a name="binutil"></a>Binary utilities - ps3bin</h4><div class="release"><p class="release-title"><b>This release (410.0.1226.0)</b></p><p>No changes since last release</p></div>
+</div>
+ <h4><a name="compiler"></a>C/C++ Compiler - ps3ppusnc</h4><div class="release"><p class="release-title"><b>This release (470.1.12878.0)</b></p><p class="history-title">Fixes</p><dl class="history"><dt>#253513</dt><dd>Fixed an optimization bug where in complex control flow graphs that include taking the addrress of labels in code (for use with the GNU computed goto construct), internal trace mesages were sometimes produced, and incorrect code could be generated in rare circumstances.</dd><dt>#253375</dt><dd><p>Fixed a bug in deduction/substitution with nested dependent qualified types.  If a dependent qualified name (LHS::E in the example below) appeared as a nested construct within another dependent qualified name (T:: template C2&lt;...) the lookup of E in LHS incorrectly ignored members that were not types.  This is now fixed.</p>
+<pre><code>template&lt;typename T, typename S, int N&gt; struct A {};
+template&lt;typename T&gt; struct B { enum { E = 17 }; };
+struct C {
+  typedef int type;
+  template&lt;int LHS = 17, int RHS = 17&gt; struct C2 { typedef C type; };
+};
+template&lt;typename S, int N&gt; struct D : A&lt;C, S, N&gt; {};
+template&lt;typename T, typename LHS, int N&gt;
+  A&lt;typename T::template C2&lt;LHS::E, 30&gt; ::type, B&lt;C&gt;, N&gt;
+   operator&lt;( A&lt;T, LHS, N&gt; &amp;lhs,  typename T::type rhs);
+struct E : D&lt; B&lt;C&gt;, 4&gt; {
+  template&lt;typename RHS&gt; E(const A&lt;C, RHS, 4&gt; &amp;rhs) {}
+};
+E f(E &amp;x) {
+  return (x &lt; 0) ;
+}
+</code></pre></dd><dt>#253189</dt><dd><p>A change in the format of diagnostics for context-information of template instantiation situations has been made, so the messages can be clicked within Visual Studio, and the appropriate line of source code is opened in Visual Studio.  For example, given the following simple test-case containing a template instantiation error:</p>
+<pre><code>template&lt;int length&gt;
+void SizeCheck( void )
+{
+  char temp[ length ];
+  temp[0] = 0;
+}
+
+int main()
+{
+  SizeCheck&lt; -1 &gt;();
+}
+</code></pre>
+<p>with previous releases, the following diagnostics were produced:</p>
+<pre><code>test.cpp(4,13): error 95: the size of an array must be greater than zero
+    char temp[ length ];
+               ^
+          detected during instantiation of "void SizeCheck&lt;length&gt;() [with length=-1]" at line 10
+</code></pre>
+<p>In Visual Studio, clicking on the the first diagnostic line:</p>
+<pre><code>test.cpp(4,13): error 95: the size of an array must be greater than zero
+</code></pre>
+<p>conveniently brings up line 4 of the source file.  But clicking on the line:</p>
+<pre><code>          detected during instantiation of "void SizeCheck&lt;length&gt;() [with length=-1]" at line 10
+</code></pre>
+<p>does not bring up the location of the instantiation-code (line 10, here).</p>
+<p>Beginning with this release, the format of these template-context messages has been changed so that they can also be used to quickly bring up the appropriate locaiton in the source-file.  For example, the error message for the above test-case is now:</p>
+<pre><code>test.cpp(4,13): error 95: the size of an array must be greater than zero
+    char temp[ length ];
+               ^
+          test.cpp(10,2): detected during instantiation of "void SizeCheck&lt;length&gt;() [with length=-1]" at line 10
+</code></pre>
+<p>The first line is the same as previously (and so clicking on it in Visual Studio will open the source file at that location, as before).  The secondary line identifying the context of where the relevant instantiation happened has been changed, so the location is specified at the start.  With this updated format, clicking on it in Visual Studio will bring up the source file at the point of the instantiation.</p></dd><dt>#252694</dt><dd><p>The front end now accepts redeclarations of C++11 alias templates.  This change has been done in anticpation of the resolution of the C++ Standard core issue 1896, which is expected to permit these redeclarations (g++ and clang++ allow these redeclarations).  For example, the following code is now accepted, but previous releases considered it to be an error:</p>
+<pre><code>template &lt;class T&gt; struct A{};
+template &lt;class T&gt; using B = A&lt;T&gt;;
+template &lt;class U&gt; using B = A&lt;U&gt;;
+</code></pre></dd><dt>#249723</dt><dd>Class local non-pure virtual functions that have been declared but not defined now generates a Warning instead of an Error diagnostic.</dd><dt>#243241</dt><dd>A bug was fixed that caused rare random compiler crashes when both optimization and -g were requested.</dd><dt>#240465</dt><dd><p>There has been a change in behavior of interpreting macro names in C++11 mode (-Xstd=cpp11), where there is an ambiguity with string literal concatenation and C++11 User-Defined Literal suffixes (UDL suffixes).  For example, the following code:</p>
+<pre><code>extern "C" int printf(const char *, ...);
+
+#define _TEXT_FILE_NAME "test.txt"
+
+const char* file_name = "/tmp/"_TEXT_FILE_NAME;
+int main()
+{
+  printf("file_name is: \"%s\"\n", file_name);
+  return 0;
+}
+</code></pre>
+<p>is legal C++03 code, and the program output is:</p>
+<pre><code>file_name is: "/tmp/test.txt"
+</code></pre>
+<p>But in C++11 mode, the token '_TEXT_FILE_NAME' might be a UDL suffix (which would require an appropriate operator to be defined).  Prior to this release, in C++11 mode this was considered an error, because the token in question ('_TEXT_FILE_NAME' here) was parsed as a UDL suffix, rather than a macro name.  Specifically, the following error was produced:</p>
+<pre><code>test.cpp(5,24): error 2645: user-defined literal operator not found
+  const char* file_name = "/tmp/"_TEXT_FILE_NAME;
+                          ^
+</code></pre>
+<p>With this release, if the token in question is a macro name, macro substitution takes place, and so for examples like this, string-concatenation now occurs in both C++03 and C++11 mode.</p></dd><dt>#235642</dt><dd>Fixed a bug involving system header files and warnings produced after front-end processing.  Most warnings are produced by the front-end, but some warnings require a deeper analysis (for example, a data-flow analysis) which is done later in compilation (a common post-front-end warnings is a warning about a potential uninitialized reference to a variable, which is only produced when data-flow analysis is enabled during optimization).  Warnings in system header files are suppressed, by default.  If a source-construct in a system header triggered a post-front-end warning, then the emission of the warning would be suppressed, but the recognition of the warning-construct was noted.  If warnings were being treated as errors (-Xquit=1), then when the compiler exited, it would exit with a non-zero exit status.  The end result would be a compilation failure, but no warning or error message would be produced.</dd><dt>#235172</dt><dd>An internal compiler exception have been fixed when using -Xdbgcompresslines=1</dd><dt>#230099</dt><dd>Fixed a bug where an incorrect &quot;never referenced&quot; diagnostic (a remark by default) was issued for non-initial elements of a pack expansion of a variadic template.</dd></dl>
+<p class="history-title">Limitations</p><dl class="history"><dt>#78550</dt><dd>When using the -Xfastmath switch, it is important to be careful with data residing in video memory. The 
+base address of video memory is available via the macro RSX_FB_BASE_ADDR. This memory region has more strict alignment constraints than
+standard memory and alignment traps may occur with the vector load and store instructions (lvlx etc.) which are used for float/int conversions with fastmath. This
+can be avoided if the variables resident in video memory are marked as volatile in
+which case the vector instructions are not used but with a loss in performance. In
+passing, accessing video memory in this manner should generally be avoided
+because it implies a large performance penalty.</dd></dl>
+</div>
+</div>
+ <h4><a name="demangler"></a>C++ demangler tool - ps3name</h4><div class="release"><p class="release-title"><b>This release (420.0.183.0)</b></p><p>No changes since last release</p></div>
+</div>
+ <h4><a name="librarian"></a>Archive librarian - ps3snarl</h4><div class="release"><p class="release-title"><b>This release (420.0.381.0)</b></p><p>No changes since last release</p></div>
+</div>
+
+</div>
+
+<!---------------------------------------------------------------------------------------->
+
+<!---------------------------------------------------------------------------------------->
+<HR>
+<!---------------------------------------------------------------------------------------->
+
+<H3>4. <A name="Installation">インストール</A> <A href="#top" CLASS=back-to-top>トップに戻る</A></H3>
+<P>本ソフトウェアをインストールする前に、以下の操作を行ってくださ い。</P>
+<UL>
+  <LI>プログラマー用ツール SDK (?? など) のインストール 
+  <LI>プログラマー用ツールの Windows 用ツールチェーン (PS3_SDK-470_001.zip など) 
+  のインストール </LI></UL>
+<P>Visual Studio Integration を使用する場合は、以下の操作を行ってください。</P>
+<UL>
+  <LI>Visual Studio 2008 または 2005 をインストール 
+  <LI><A href="https://ps3.scedev.net/projects/prodg">ここ</A>で入手可能な Visual Studio 
+  .NET Integration v2.2.5.5 をインストール </LI></UL>
+<H5><B><B>インストール</B></B></H5>
+<UL>
+  <LI>ソフトウェアは、単独の Zip ファイルからインストールされます 
+  (例：SNCPPUToolchainforPlayStation3v470.1.zip)。<BR>このアーカイブ内のファイルは、他の上記 SDK Zip 
+  ファイルと同じディレクトリに解凍してください。 </LI></UL>
+  <P><STRONG>メモ：</STRONG>本リリースのツールチェーンでは、環境変数に依存することなく SDK の場所が検索されます。 </P>
+<P><STRONG>デフォルトのインクルード パスやライブラリなどは、ツール実行ファイルに関連した場所に配置されるため、ツールは SDK の 
+host-win32/sn/bin フォルダにインストールする必要があります。</STRONG> </P>
+
+<!---------------------------------------------------------------------------------------->
+<HR>
+<!---------------------------------------------------------------------------------------->
+<H3>5. <A name="Limitations and warnings">制限と警告</A> <A href="#top" CLASS=back-to-top>トップに戻る</A></H3>
+<!---------------------------------------------------------------------------------------->
+<P><B>制限</B></P>
+<UL>
+  <LI>個々のツールに関する制限は、<A 
+  href="#Whats_new">ここ</A>を参照してください。 
+  </LI></UL>
+<P><B>警告</B></P>
+<UL>
+  <LI>SNC では、GCC スタイル制約でのインライン asm 使用に対応していません 
+  (未加工のアセンブリ言語には対応)。オプティマイザとのより緊密な統合が行えるため、低レベルのコードに対しては組込み関数ベースのアプローチが推奨されます。組み込み関数でサポートされないコード例がある場合は、当社までご連絡ください。 
+  </LI></UL>
+  
+
+<!---------------------------------------------------------------------------------------->
+<HR>
+
+<H3>6. <A name="Support">アップデートとテクニカルサポート</A> <A href="#top" class="back-to-top">トップに戻る</A></H3>
+<P>ダウンロード及び技術資料は DevNet によりホストされています:<BR><A 
+href="https://ps3.scedev.net/projects#dl_25" 
+target=_blank>https://ps3.scedev.net/projects#dl_25</A></P>
+<P>SN Systems ツールに関するトレーニングビデオはこちらからご利用できます:<BR><A 
+href="https://ps3.scedev.net/docs/sn_videos_mp4/" 
+target=_blank>https://ps3.scedev.net/docs/sn_videos_mp4/</A></P>
+<P>プライベートサポートの作成及び管理はこちらで行えます:<BR><A 
+href="https://ps3.scedev.net/support/issues/subscribed/me/" 
+target=_blank>https://ps3.scedev.net/support/issues/subscribed/me/</A></P>
+<P>製品のライセンス情報はこちらからご利用いただけます:<BR><A 
+href="https://ps3.scedev.net/projects/sn_pls/docs/list" 
+target=_blank>https://ps3.scedev.net/projects/sn_pls/docs/list</A></P>
+<P class=note><STRONG>注意: </STRONG>DevNet 
+からダウンロードされる全てのプラグラムは御社とソニーコンピュータエンタテイメント及び関連企業との合意文書の条件に準拠します。</P>
+
+<!---------------------------------------------------------------------------------------->
+<HR>
+<!---------------------------------------------------------------------------------------->
+
+<DIV CLASS=footer>
+<P><B>著作権に関する注意事項</B></P>
+<!---------------------------------------------------------------------------------------->
+<P>"ProDG"はSN Systems Limitedの商標です<BR>"PlayStation"はSony Computer Entertainment 
+Inc.の登録商標です</P>
+
+</DIV>
+<!---------------------------------------------------------------------------------------->
+</BODY>
+</HTML>
+
